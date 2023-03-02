@@ -1,51 +1,17 @@
 'use strict';
+//oef 4
 
-//oef1
-//normalement les waarde doivent s'afficher en numeric mais y a les rgb waarde et les numeric waarde
-//belek a pas confondre puis pour test faut aussi activer les functions 
-let color = {
-    nR: 'waarde rood',
-    nG: 'waarde groen',
-    nB: 'waarde blue',
-};
-
-function showColor() {
-
-    let r = `de numeriek waarde van rood is: ${color.nR} en de rgb shit is: rgb(255 255 red)`;
-    let g = `de numeriek waarde van groen is: ${color.nG} en de rgb shit is: rgb(255 2gr een)`;
-    let b = `de numeriek waarde van blue is: ${color.nB} en de rgb shit is: rgb(255 25b lue)`;
-
-    console.log(r);
-    console.log(g);
-    console.log(b);
-
-}
-
-function setColor() {
-    color.nR = `rgb(255 255 red)`;
-    color.nB = `rgb(255 25b lue)`;
-    color.nG = `rgb(255 2gr een)`;
-
-    let r = `de numeriek waarde van nR is: ${color.nR}`;
-    let g = `de numeriek waarde van nG is: ${color.nG} `;
-    let b = `de numeriek waarde van nB is: ${color.nB} `;
-    console.log(r);
-    console.log(g);
-    console.log(b);
-}
-//showColor(color.nR, color.nB, color.nG);
-//setColor(color.nR, color.nB, color.nG);
-
-//oef 2 uitbreiding de 1 mais ca montre que j'ai pas bien capté oef1 du coup a refaire
-//oef3 uitbreiding de 2 j'ai meme pas lu
+//start oef4
 
 //oef4 
+
+
 
 let student = {
     naam: document.getElementById('naam').value,
     age: document.getElementById('leeftijd').value,
     degree: document.getElementById('degree').value,
-    courses: document.getElementById('courses').value,
+    courses: [document.getElementById('courses').value],
 
 
 }

@@ -1,5 +1,4 @@
 'use strict';
-// les liens bootstrap fonctionne pas du ccoup les enroule bootstrap t'arrive pas a faire
 
 let message = document.getElementsByClassName('succesboodschap');
 let allert = document.getElementById('alert alert-primary');
