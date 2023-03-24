@@ -1,137 +1,133 @@
 'use strict';
 
-//oef1
-//normalement les waarde doivent s'afficher en numeric mais y a les rgb waarde et les numeric waarde
-//belek a pas confondre puis pour test faut aussi activer les functions 
-let color = {
-    nR: 'waarde rood',
-    nG: 'waarde groen',
-    nB: 'waarde blue',
+let show = document.getElementById('show');
+let studenten = [];
+let button = document.getElementById('cStudent');
+let data = [];
+
+
+function Student(name,age,degree){
+    this.name = name;
+    this.age = age;
+    this.degree = degree;
+
 };
 
-function showColor() {
+let student0 = new Student();
+let setPersonalDetails = (details)=>{
+    [student0.name,student0.age,student0.degree] = details;
+    console.log(...details);
+    console.log(student0.age);
+    studenten.push(`Mijn naam is ${student0.name} en ik ben ${student0.age} jaar oud. Ik zit op het Ehb in de richting ${student0.degree}.\n`);
 
-    let r = `de numeriek waarde van rood is: ${color.nR} en de rgb shit is: rgb(255 255 red)`;
-    let g = `de numeriek waarde van groen is: ${color.nG} en de rgb shit is: rgb(255 2gr een)`;
-    let b = `de numeriek waarde van blue is: ${color.nB} en de rgb shit is: rgb(255 25b lue)`;
+};
 
-    console.log(r);
-    console.log(g);
-    console.log(b);
+button.addEventListener('click', ()=>{
+    data.push(prompt('Name'));
+    data.push(prompt('Age'));
+    data.push(prompt('Degree'));
+    /*il faut oproepen le functie la il faut pcq si je le mets pas dans ce event il vas directement l'executer au lieu
+    d'attendre que je click sur le button create. Dcp comme il attends pas array data est vide et puis quand j'appuie
+    bah il vas remplir le array data mais il va pas rappeler le functie setPersonalDetails pcq il a deja fait */
+    setPersonalDetails(data);
 
-}
-
-function setColor() {
-    color.nR = `rgb(255 255 red)`;
-    color.nB = `rgb(255 25b lue)`;
-    color.nG = `rgb(255 2gr een)`;
-
-    let r = `de numeriek waarde van nR is: ${color.nR}`;
-    let g = `de numeriek waarde van nG is: ${color.nG} `;
-    let b = `de numeriek waarde van nB is: ${color.nB} `;
-    console.log(r);
-    console.log(g);
-    console.log(b);
-}
-//showColor(color.nR, color.nB, color.nG);
-//setColor(color.nR, color.nB, color.nG);
-
-//oef 2 uitbreiding de 1 mais ca montre que j'ai pas bien capté oef1 du coup a refaire
-//oef3 uitbreiding de 2 j'ai meme pas lu
-
-//oef4 
-
-let student = {
-    naam: document.getElementById('naam').value,
-    age: document.getElementById('leeftijd').value,
-    degree: document.getElementById('degree').value,
-    courses: document.getElementById('courses').value,
+});
 
 
-}
-let studenten = [];
-let count = 0;
-function setPersonalDetails() {
-    let naam = document.getElementById('naam').value;
-    let age = document.getElementById('leeftijd').value;
-    let degree = document.getElementById('degree').value;
+//console.log(data);
+//console.log(student0);
+show.addEventListener('click',  () =>{
+    let div = document.createElement('div');
+    let p = document.createElement('p');
+    p.innerHTML = studenten;
+    div.appendChild(p);
+    console.log(...studenten);
+});
+/* oef 7 versie leerkracht :
 
-    student.naam = naam;
-    student.age = age;
-    student.degree = degree;
-    //new student = {degree:globalThis.degree,age:globalThis.age,naam:globalThis.naam,courses:globalThis.courses} ;
-   stud(naam,age,degree);
-    function stud(naam, age, degree) {
-        /*this.naa = naam;
-        this.ag = age;
-        this.degre = degree;*/
-        let n ='';
-        let a='';;
-        let d='';;
-         n =naam;
-         a = age;
-         d = degree;/*
-        j'arrive pas a montrer les valeurs du struct pcq quand je change le input waarde vu 
-        que n = naam = document.getElementById('naam').value du coup meme quand je change
-        le adress space bah il prends la valeur fde*/
-        for (let i = 0; i <= count; i++) {
-            studenten[i] = `${n} ${a} ${d}`;
-            console.log(studenten);
-            console.log(n);
-            
+'use strict';
+window.onload = function(){
+    //code executes when page is done loading.
+    //Get the buttons and add eventlisteners
+    document.getElementById('create').addEventListener('click', createStudent);
+    document.getElementById('show').addEventListener('click', showStudents);
+
+    let listStudents = [];//List of students
+
+    //Student object constructor
+    function Student(name, age, degree){
+        this.name = name;
+        this.age = age;
+        this.degree = degree;
+        this.courses = [];
+        this.setPersonalDetails = function(details){
+            [this.name,this.age,this.degree] = details;
+        };
+        this.addCourse = function(course){
+            this.courses.push(course);
+        };
+        this.showStudent = function(){
+            let txt = `Studentname: ${this.name}, ${this.age} years and studying ${this.degree} at EhB. 
+Courses are: ${this.courses.join(', ')}.`;
+
+            return txt;
         }
-        }//a tt moment c'est ca le souci wlh 
-        stud = new stud(naam,age,degree);
 
-     
-     
-    
-    count++;
-    /*function stud(naam, age, degree) {
-        student.naam = naam;
-        student.age = age;
-        student.degree = degree;
-        //new student;
-        for (let i = 0; i < count; i++) {
-            studenten[i] = `${naam} ${age} ${degree}`;
-        }
-        console.log(...studenten);
-        ;
-    }*/
-
-
-}
-let coursesArray = [student.courses];
-let coursesAdder = document.getElementById('addCourses');
-coursesAdder.addEventListener('click', function () {
-    addCourses();
-})
-let limit = 0;
-function addCourses() {
-    //je cpate pas pourquoi sans ce stap la les propreties de student n'ont pas de value
-    let courses = document.getElementById('courses').value;
-    student.courses = courses;
-
-    if (student.courses !== 0) {
-        coursesArray[limit] = student.courses;
-        limit++;
-        console.log(coursesArray[limit]);
     }
 
-}
+    function createStudent(){
+        //ask for details
+        let name = prompt('Name?');
+        let age = prompt('Age?');
+        let degree = prompt('Degree?');
 
-function showStudent() {
-    let show = `
-                Mijn naam is ${student.naam}. Ik ben ${student.age} jaar oud en volg ${student.degree} aan EhB
-                Mijn vakken zijn: ${coursesArray}
-                `;
-    console.log(show);
-}
-function prompt() {
-    setPersonalDetails();
-    showStudent();
-}
-let boutton = document.getElementById('button');
-boutton.addEventListener('click', function () {
-    prompt();
-})
+        let student = new Student(name,age,degree);
+
+        //ask for all the courses
+        while(true){
+            let c = prompt('Course?');
+            if (c) {
+                student.addCourse(c);
+            } else {
+                break;
+            }
+        }
+
+        // Done. Add to list\
+        listStudents.push(student);
+
+    }
+
+    function showStudents(){
+        let div = document.getElementById('content');
+        for(let s of listStudents){
+            let p = document.createElement('p');
+            p.innerHTML = s.showStudent();
+            div.appendChild(p);
+        }
+    }
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
