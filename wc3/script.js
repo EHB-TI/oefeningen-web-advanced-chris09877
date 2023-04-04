@@ -66,7 +66,7 @@ function clearInputs() {
     }
 
     else {
-        alert('oups sa merche pas');
+        alert('oups ca marche pas');
     }
 
 }

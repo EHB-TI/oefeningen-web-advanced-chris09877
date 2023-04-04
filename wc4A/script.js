@@ -1,4 +1,5 @@
 'use strict'
+//fallait utiliser un call back mais je vois pas cmnt dcp besoin de correction
 
 let randomNumber =5;
 let btn = document.getElementById("btn");
