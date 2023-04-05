@@ -1,6 +1,6 @@
 'use strict'
 
-
+//step 1-2 et un peu de 3
 
 let button = document.getElementById('button');
 
