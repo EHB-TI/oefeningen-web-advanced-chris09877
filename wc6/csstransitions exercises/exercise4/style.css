@@ -1,0 +1,39 @@
+body {
+ margin: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ font-family: sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+ul li a {
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  position: relative;
+  color: #262626;
+}
+
+
+
+
+
+
+
+
+
+
+
+
