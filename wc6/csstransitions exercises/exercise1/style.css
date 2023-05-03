@@ -13,4 +13,14 @@ a {
 	border: 3px solid #351435;
 	padding: 40px 80px;
 	position: relative;
+
+}
+
+a:hover{
+	color: #fff;
+	background-color: #351435;
+	transition-property: background-color;
+	transition-duration: 2ms;
+	transition-timing-function: linear;
+	transition-delay: 0ms;
 }
